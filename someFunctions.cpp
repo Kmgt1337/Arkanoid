@@ -68,7 +68,7 @@ inline void checkRectangles(std::vector<std::unique_ptr<Rectangle>>& rectangles,
 			rectangles.erase(rectangles.begin() + i);
 			ball->changeAfterHit();
 			ball->increaseSpeed();
-			count++;
+			//count++;
 			break;
 		}
 	}
