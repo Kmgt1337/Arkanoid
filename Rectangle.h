@@ -11,7 +11,7 @@ public:
 	void setColor(sf::Color color);
 	void move(sf::Keyboard::Key key);
 
-	bool isHit(float x, float y);
+	int isHit(float x, float y);
 
 	sf::RectangleShape shape;
 

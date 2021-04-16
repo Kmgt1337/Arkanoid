@@ -1,4 +1,5 @@
 #include "Rectangle.h"
+#include <iostream>
 
 Rectangle::Rectangle()
 {
@@ -36,12 +37,19 @@ void Rectangle::setColor(sf::Color color)
 	this->shape.setFillColor(color);
 }
 
-bool Rectangle::isHit(float x, float y)
+int Rectangle::isHit(float x, float y)
 {
 	if ((y <= this->shape.getPosition().y + 20.0f && y >= this->shape.getPosition().y) &&
 		x >= this->shape.getPosition().x && x <= this->shape.getPosition().x + 100.0f)
 	{
-		return true;
+		return 1;
 	}
-	return false;
+	/*else if
+		((this->shape.getPosition().y <= y  && this->shape.getPosition().y >= y - 20.0f) &&
+		(this->shape.getPosition().x >= x && this->shape.getPosition().x <= x + 100.0f))
+	{
+		std::cout << "hehe" << std::endl;
+		return 2;
+	}*/
+	return -1;
 }

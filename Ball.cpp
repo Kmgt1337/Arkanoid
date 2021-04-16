@@ -1,12 +1,15 @@
 #include "Ball.h"
 #include <iostream>
 
-Ball::Ball(float x, float y)
+Ball::Ball(float x, float y, float Vx, float Vy)
 {
 	shape.setPosition(x, y);
 	shape.setRadius(this->ballRadius);
 	shape.setOrigin(this->ballRadius, this->ballRadius);
+	this->ballVeliocity_X = Vx;
+	this->ballVeliocity_Y = Vy;
 	shape.setFillColor(sf::Color::Black);
+	this->veliocity = { ballVeliocity_X, ballVeliocity_Y };
 }
 
 void Ball::draw(sf::RenderTarget& target, sf::RenderStates state) const
@@ -16,7 +19,6 @@ void Ball::draw(sf::RenderTarget& target, sf::RenderStates state) const
 
 void Ball::update()
 {
-	std::cout << this->ballVeliocity_Y << std::endl;
 	this->shape.move(veliocity);
 	if (this->left() < 0)
 	{
@@ -59,25 +61,33 @@ float Ball::bottom()
 void Ball::checkRectangle(float x, float y)
 {
 	if (this->ballVeliocity_Y > 0 &&
-		(this->bottom() >= y && this->bottom() <= y + 20.0f) &&
+	   (this->bottom() >= y && this->bottom() <= y + 20.0f) &&
 		this->shape.getPosition().x >= x && this->shape.getPosition().x <= x + 100.0f)
 	{
 		this->veliocity.y = -ballVeliocity_Y;
 	}
 	else if (this->ballVeliocity_Y < 0 &&
-		(this->top() <= y + 20.0f && this->top() >= y) &&
-		this->shape.getPosition().x >= x && this->shape.getPosition().x <= x + 100.0f)
+			(this->top() <= y + 20.0f && this->top() >= y) &&
+			this->shape.getPosition().x >= x && this->shape.getPosition().x <= x + 100.0f)
 	{
 		this->veliocity.y = -ballVeliocity_Y;
 	}
 }
 
-void Ball::changeAfterHit()
+void Ball::changeAfterHitBottom()
 {
 	if (ballVeliocity_X < 0) this->veliocity.x = ballVeliocity_X;
 	else					 this->veliocity.x = veliocity.x;
 	
 	this->veliocity.y = ballVeliocity_Y;
+}
+
+void Ball::changeAfterHitTop()
+{
+	if (ballVeliocity_X > 0) this->veliocity.x = veliocity.x;
+	else					 this->veliocity.x = -ballVeliocity_X;
+
+	this->veliocity.y = -ballVeliocity_Y;
 }
 
 void Ball::increaseSpeed()

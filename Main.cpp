@@ -10,9 +10,10 @@ int main(int argc, char* argv[])
 
 	std::vector<std::unique_ptr<Rectangle>> rectangles = createRectangles();
 	
-	Ball ball(generateCoords(), 200);
+	float speed = generateSpeed();
+	Ball ball(generateCoords(), 200, speed, speed);
 	Rectangle rectangle;
-	rectangle.setPosition(1000, 700);
+	rectangle.setPosition(500, 700);
 
 	sf::RenderWindow window{ sf::VideoMode(windowWidth, windowHeight), argv[0] };
 	window.setFramerateLimit(60);
@@ -54,7 +55,7 @@ int main(int argc, char* argv[])
 		sf::Text text(message, font);
 		text.setCharacterSize(20);
 		text.setFillColor(sf::Color::Black);
-		text.setPosition(10, 10);
+		text.setPosition(10, 750);
 
 		window.draw(text);
 		window.draw(rectangle);

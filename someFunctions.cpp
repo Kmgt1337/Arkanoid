@@ -46,12 +46,10 @@ inline void moveRectnangle(Rectangle& rectangle)
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
 		rectangle.move(sf::Keyboard::Right);
-
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
 		rectangle.move(sf::Keyboard::Up);
-
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
@@ -63,12 +61,21 @@ inline void checkRectangles(std::vector<std::unique_ptr<Rectangle>>& rectangles,
 {
 	for (size_t i = 0; i < rectangles.size(); i++)
 	{
-		if (rectangles[i]->isHit(ball->shape.getPosition().x, ball->shape.getPosition().y))
+		size_t pom = rectangles[i]->isHit(ball->shape.getPosition().x, ball->shape.getPosition().y);
+		if (pom == 1)
 		{
 			rectangles.erase(rectangles.begin() + i);
-			ball->changeAfterHit();
+			ball->changeAfterHitBottom();
 			ball->increaseSpeed();
-			//count++;
+			count++;
+			break;
+		}
+		else if (pom == 2)
+		{
+			rectangles.erase(rectangles.begin() + i);
+			ball->changeAfterHitTop();
+			ball->increaseSpeed();
+			count++;
 			break;
 		}
 	}
@@ -81,6 +88,16 @@ inline size_t generateCoords()
 	std::uniform_int_distribution<size_t> draw{ 400,600 };
 
 	return draw(gen);
+}
+
+inline float generateSpeed()
+{
+	std::random_device seed;
+	std::mt19937 gen(seed());
+	std::uniform_int_distribution<size_t> draw{ 1,10 };
+
+	if (draw(gen) % 2) return -5.0f;
+	else return 5.0f;
 }
 
 
