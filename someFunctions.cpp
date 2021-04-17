@@ -13,23 +13,20 @@ inline std::vector<std::unique_ptr<Rectangle>> createRectangles()
 
 	for (size_t i = 0; i < 10; i++)
 	{
-		rectangles[i]->setColor(sf::Color::Green);
-		rectangles[i]->setPosition(x, y);
-		x += 150;
-	}
-	x = 10;
-	y = 50;
-	for (size_t i = 10; i < 20; i++)
-	{
-		rectangles[i]->setColor(sf::Color::Green);
 		rectangles[i]->setPosition(x, y);
 		x += 150;
 	}
 	x = 10;
 	y = 90;
+	for (size_t i = 10; i < 20; i++)
+	{
+		rectangles[i]->setPosition(x, y);
+		x += 150;
+	}
+	x = 10;
+	y = 170;
 	for (size_t i = 20; i < rectangles.size(); i++)
 	{
-		rectangles[i]->setColor(sf::Color::Green);
 		rectangles[i]->setPosition(x, y);
 		x += 150;
 	}
@@ -70,14 +67,14 @@ inline void checkRectangles(std::vector<std::unique_ptr<Rectangle>>& rectangles,
 			count++;
 			break;
 		}
-		else if (pom == 2)
+	/*	else if (pom == 2)
 		{
 			rectangles.erase(rectangles.begin() + i);
 			ball->changeAfterHitTop();
 			ball->increaseSpeed();
 			count++;
 			break;
-		}
+		}*/
 	}
 }
 
@@ -85,7 +82,7 @@ inline size_t generateCoords()
 {
 	std::random_device seed;
 	std::mt19937 gen(seed());
-	std::uniform_int_distribution<size_t> draw{ 400,600 };
+	std::uniform_int_distribution<size_t> draw{ 300,700 };
 
 	return draw(gen);
 }

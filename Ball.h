@@ -24,7 +24,7 @@ public:
 	sf::CircleShape shape;
 
 private:
-	const float ballRadius{ 20.0f };
+	const float ballRadius{ 40.0f };
 	float ballVeliocity_X{ 0.0f };
 	float ballVeliocity_Y{ 0.0f };
 	sf::Vector2f veliocity{ ballVeliocity_X, ballVeliocity_Y };

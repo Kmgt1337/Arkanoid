@@ -8,7 +8,6 @@ Ball::Ball(float x, float y, float Vx, float Vy)
 	shape.setOrigin(this->ballRadius, this->ballRadius);
 	this->ballVeliocity_X = Vx;
 	this->ballVeliocity_Y = Vy;
-	shape.setFillColor(sf::Color::Black);
 	this->veliocity = { ballVeliocity_X, ballVeliocity_Y };
 }
 
@@ -20,6 +19,7 @@ void Ball::draw(sf::RenderTarget& target, sf::RenderStates state) const
 void Ball::update()
 {
 	this->shape.move(veliocity);
+
 	if (this->left() < 0)
 	{
 		this->veliocity.x = ballVeliocity_X;
@@ -61,14 +61,14 @@ float Ball::bottom()
 void Ball::checkRectangle(float x, float y)
 {
 	if (this->ballVeliocity_Y > 0 &&
-	   (this->bottom() >= y && this->bottom() <= y + 20.0f) &&
-		this->shape.getPosition().x >= x && this->shape.getPosition().x <= x + 100.0f)
+	   (this->bottom() >= y && this->bottom() <= y + 30.0f) &&
+		this->shape.getPosition().x >= x && this->shape.getPosition().x <= x + 130.0f)
 	{
 		this->veliocity.y = -ballVeliocity_Y;
 	}
 	else if (this->ballVeliocity_Y < 0 &&
-			(this->top() <= y + 20.0f && this->top() >= y) &&
-			this->shape.getPosition().x >= x && this->shape.getPosition().x <= x + 100.0f)
+			(this->top() <= y + 30.0f && this->top() >= y) &&
+			this->shape.getPosition().x >= x && this->shape.getPosition().x <= x + 130.0f)
 	{
 		this->veliocity.y = -ballVeliocity_Y;
 	}
