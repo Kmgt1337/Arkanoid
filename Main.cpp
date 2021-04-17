@@ -31,8 +31,8 @@ int main(int argc, char* argv[])
 	sf::Font font;
 	font.loadFromFile("fonts/OpenSans-Regular.ttf");
 	
-	sf::Texture ballTexture, rectanglesTexture, backgroundTexture;
-	if (!ballTexture.loadFromFile("pics/papiez.png")) return -2137;
+	sf::Texture ballTexture,
+		rectanglesTexture, backgroundTexture;
 	if (!rectanglesTexture.loadFromFile("pics/kremowka.png")) return -2137;
 	if (!backgroundTexture.loadFromFile("pics/watykan.png")) return -2137;
 	

@@ -150,6 +150,7 @@
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="someFunctions.cpp" />
     <ClCompile Include="Text.cpp" />
+    <ClCompile Include="Textuers.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
