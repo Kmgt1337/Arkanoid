@@ -24,6 +24,7 @@ int main(int argc, char* argv[])
 	sf::RenderWindow window{ sf::VideoMode(windowWidth, windowHeight), argv[0] };
 	window.setFramerateLimit(60);
 	window.clear(sf::Color::White);
+	
 	sf::Event event;
 
 	sf::RectangleShape background;
@@ -34,12 +35,13 @@ int main(int argc, char* argv[])
 	sf::Font font;
 	font.loadFromFile("fonts/OpenSans-Regular.ttf");
 	
-	sf::Texture ballTexture = makeBallTexture();
+	sf::Texture ballTextureRight = makeBallTextureRight();
+	sf::Texture ballTextureLeft = makeBallTextureLeft();
 	sf::Texture rectanglesTexture = makeRectanglesTexture();
 	sf::Texture backgroundTexture = makeBackgroundTexture();	
 
 	background.setTexture(&backgroundTexture);
-	ball.shape.setTexture(&ballTexture, false);
+	ball.checkBallTexture(ballTextureRight, ballTextureLeft);
 	for (auto& elem : rectangles)
 	{
 		elem->shape.setTexture(&rectanglesTexture);
@@ -93,7 +95,8 @@ int main(int argc, char* argv[])
 
 							ball.checkRectangle(rectangle.shape.getPosition().x, rectangle.shape.getPosition().y);
 							ball.update();
-							if (ball.gameOver()) 
+							ball.checkBallTexture(ballTextureRight, ballTextureLeft);
+							if (ball.gameOver())
 							{
 								speed = generateSpeed();
 								ball.reset(static_cast<float>(generateCoords()), 400, speed, abs(speed));

@@ -1,10 +1,18 @@
 #include "SFML\Graphics.hpp"
 #include <iostream>
 
-inline sf::Texture makeBallTexture()
+inline sf::Texture makeBallTextureRight()
 {
 	sf::Texture ballTexture;
-	if (!ballTexture.loadFromFile("pics/papiez.png")) std::cout << "Error" << std::endl;
+	if (!ballTexture.loadFromFile("pics/papiezprawy.png")) std::cout << "Error" << std::endl;
+
+	return ballTexture;
+}
+
+inline sf::Texture makeBallTextureLeft()
+{
+	sf::Texture ballTexture;
+	if (!ballTexture.loadFromFile("pics/papiezlewy.png")) std::cout << "Error" << std::endl;
 
 	return ballTexture;
 }

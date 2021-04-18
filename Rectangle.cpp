@@ -75,14 +75,14 @@ int Rectangle::isHit(float x, float y, float Vx, float Vy)
 		x -= 30;
 		y += 30;
 	}
-	if ((y <= this->shape.getPosition().y + 50.0f && y >= this->shape.getPosition().y) &&
+	if (Vy < 0 && (y <= this->shape.getPosition().y + 50.0f) &&
 		x >= this->shape.getPosition().x && x <= this->shape.getPosition().x + 100.0f)
 	{
 		return 1;
 	}
 	else if
-		((this->shape.getPosition().y <= y  && this->shape.getPosition().y >= y) &&
-		(this->shape.getPosition().x >= x && this->shape.getPosition().x <= x + 100.0f))
+		(Vy > 0 && (this->shape.getPosition().y >= y - 50.0f) &&
+		(this->shape.getPosition().x <= x && this->shape.getPosition().x + 100.0f >= x))
 	{
 		return 2;
 	}

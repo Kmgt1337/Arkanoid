@@ -84,10 +84,8 @@ void Ball::changeAfterHitBottom()
 
 void Ball::changeAfterHitTop()
 {
-	if (this->veliocity.x > 0) this->veliocity.x = veliocity.x;
-	else					   this->veliocity.x = veliocity.x;
-
-	this->veliocity.y = -veliocity.y;
+	std::cout << "HEHE" << std::endl;
+	this->veliocity.y *= -1;
 }
 
 void Ball::increaseSpeed()
@@ -114,4 +112,11 @@ void Ball::reset(float x, float y, float Vx, float Vy)
 	this->ballVeliocity_Y = Vy;
 	this->veliocity = { ballVeliocity_X, ballVeliocity_Y };
 }
+
+void Ball::checkBallTexture(sf::Texture& ballTextureRight, sf::Texture& ballTextureLeft)
+{
+	if (this->veliocity.x < 0) this->shape.setTexture(&ballTextureLeft, false);
+	else					   this->shape.setTexture(&ballTextureRight, false);
+}
+
 

@@ -104,9 +104,5 @@ inline bool rectangleGameOver(std::vector<std::unique_ptr<Rectangle>>& rectangle
 	else return false;
 }
 
-inline void game()
-{
-
-}
 
 
