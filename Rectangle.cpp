@@ -19,8 +19,25 @@ void Rectangle::move(sf::Keyboard::Key key)
 
 	switch (key)
 	{
-	case sf::Keyboard::Key::Left:  x -= 7.5f; break;
-	case sf::Keyboard::Key::Right: x += 7.5f; break;
+	case sf::Keyboard::Key::Left: 
+		if (this->shape.getPosition().x <= 0)
+		{
+			this->shape.setPosition(this->shape.getPosition().x + 1, this->shape.getPosition().y);
+			break;
+		}
+		
+		x -= 7.5f; 
+		break;
+	
+	case sf::Keyboard::Key::Right: 
+		if (this->shape.getPosition().x >= 1100)
+		{
+			this->shape.setPosition(this->shape.getPosition().x - 1, this->shape.getPosition().y);
+			break;
+		}
+		
+		x += 7.5f; 
+		break;
 	}
 
 	this->shape.setPosition(x, y);
@@ -36,16 +53,36 @@ void Rectangle::setColor(sf::Color color)
 	this->shape.setFillColor(color);
 }
 
-int Rectangle::isHit(float x, float y)
+int Rectangle::isHit(float x, float y, float Vx, float Vy)
 {
+	if (Vx > 0 && Vy < 0)
+	{
+		x += 30;
+		y -= 30;
+	}
+	else if (Vx < 0 && Vy < 0)
+	{
+		x -= 30;
+		y -= 30;
+	}
+	else if (Vx > 0 && Vy > 0)
+	{
+		x += 30;
+		y += 30;
+	}
+	else if (Vx < 0 && Vy > 0)
+	{
+		x -= 30;
+		y += 30;
+	}
 	if ((y <= this->shape.getPosition().y + 50.0f && y >= this->shape.getPosition().y) &&
-		x >= this->shape.getPosition().x && x <= this->shape.getPosition().x + 150.0f)
+		x >= this->shape.getPosition().x && x <= this->shape.getPosition().x + 100.0f)
 	{
 		return 1;
 	}
 	else if
-		((this->shape.getPosition().y <= y  && this->shape.getPosition().y >= y - 50.0f) &&
-		(this->shape.getPosition().x >= x && this->shape.getPosition().x <= x + 150.0f))
+		((this->shape.getPosition().y <= y  && this->shape.getPosition().y >= y) &&
+		(this->shape.getPosition().x >= x && this->shape.getPosition().x <= x + 100.0f))
 	{
 		return 2;
 	}
@@ -58,3 +95,4 @@ void Rectangle::setSize(float x, float y)
 	this->size = { x, y };
 	this->shape.setSize(size);
 }
+

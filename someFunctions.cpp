@@ -1,6 +1,7 @@
 #include <random>
 #include "Rectangle.h"
 #include "Ball.h"
+#include <iostream>
 
 inline std::vector<std::unique_ptr<Rectangle>> createRectangles()
 {
@@ -13,21 +14,21 @@ inline std::vector<std::unique_ptr<Rectangle>> createRectangles()
 
 	for (size_t i = 0; i < 10; i++)
 	{
-		rectangles[i]->setPosition(x, y);
+		rectangles[i]->setPosition(static_cast<float>(x), static_cast<float>(y));
 		x += 150;
 	}
 	x = 10;
 	y = 90;
 	for (size_t i = 10; i < 20; i++)
 	{
-		rectangles[i]->setPosition(x, y);
+		rectangles[i]->setPosition(static_cast<float>(x), static_cast<float>(y));
 		x += 150;
 	}
 	x = 10;
 	y = 170;
 	for (size_t i = 20; i < rectangles.size(); i++)
 	{
-		rectangles[i]->setPosition(x, y);
+		rectangles[i]->setPosition(static_cast<float>(x), static_cast<float>(y));
 		x += 150;
 	}
 
@@ -58,7 +59,7 @@ inline void checkRectangles(std::vector<std::unique_ptr<Rectangle>>& rectangles,
 {
 	for (size_t i = 0; i < rectangles.size(); i++)
 	{
-		size_t pom = rectangles[i]->isHit(ball->shape.getPosition().x, ball->shape.getPosition().y);
+		size_t pom = rectangles[i]->isHit(ball->shape.getPosition().x, ball->shape.getPosition().y, ball->veliocity.x, ball->veliocity.y);
 		if (pom == 1)
 		{
 			rectangles.erase(rectangles.begin() + i);
@@ -67,14 +68,14 @@ inline void checkRectangles(std::vector<std::unique_ptr<Rectangle>>& rectangles,
 			count++;
 			break;
 		}
-	/*	else if (pom == 2)
+		else if (pom == 2)
 		{
 			rectangles.erase(rectangles.begin() + i);
 			ball->changeAfterHitTop();
 			ball->increaseSpeed();
 			count++;
 			break;
-		}*/
+		}
 	}
 }
 
@@ -95,6 +96,17 @@ inline float generateSpeed()
 
 	if (draw(gen) % 2) return -5.0f;
 	else return 5.0f;
+}
+
+inline bool rectangleGameOver(std::vector<std::unique_ptr<Rectangle>>& rectangles)
+{
+	if (rectangles.size() == 0) return true;
+	else return false;
+}
+
+inline void game()
+{
+
 }
 
 

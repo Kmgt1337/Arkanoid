@@ -18,24 +18,24 @@ void Ball::draw(sf::RenderTarget& target, sf::RenderStates state) const
 
 void Ball::update()
 {
-	this->shape.move(veliocity);
-
 	if (this->left() < 0)
 	{
-		this->veliocity.x = ballVeliocity_X;
+		this->veliocity.x = -veliocity.x;
 	}
 	else if (this->right() > 1200)
 	{
-		this->veliocity.x = -ballVeliocity_X;
+		this->veliocity.x = -veliocity.x;
 	}
 	if (this->top() < 0)
 	{
-		this->veliocity.y = ballVeliocity_Y;
+		this->veliocity.y = -veliocity.y;
 	}
 	if (this->bottom() > 800)
 	{
-		this->veliocity.y = -ballVeliocity_Y;
+		this->veliocity.y = -veliocity.y;
 	}
+
+	this->shape.move(veliocity);
 }
 
 float Ball::left()
@@ -76,18 +76,18 @@ void Ball::checkRectangle(float x, float y)
 
 void Ball::changeAfterHitBottom()
 {
-	if (ballVeliocity_X < 0) this->veliocity.x = ballVeliocity_X;
-	else					 this->veliocity.x = veliocity.x;
+	if (this->veliocity.x < 0) this->veliocity.x = veliocity.x;
+	else					   this->veliocity.x = veliocity.x;
 	
 	this->veliocity.y = ballVeliocity_Y;
 }
 
 void Ball::changeAfterHitTop()
 {
-	if (ballVeliocity_X > 0) this->veliocity.x = veliocity.x;
-	else					 this->veliocity.x = -ballVeliocity_X;
+	if (this->veliocity.x > 0) this->veliocity.x = veliocity.x;
+	else					   this->veliocity.x = veliocity.x;
 
-	this->veliocity.y = -ballVeliocity_Y;
+	this->veliocity.y = -veliocity.y;
 }
 
 void Ball::increaseSpeed()
@@ -103,5 +103,15 @@ bool Ball::gameOver()
 		return true;
 	}
 	return false;
+}
+
+void Ball::reset(float x, float y, float Vx, float Vy)
+{
+	shape.setPosition(x, y);
+	shape.setRadius(this->ballRadius);
+	shape.setOrigin(this->ballRadius, this->ballRadius);
+	this->ballVeliocity_X = Vx;
+	this->ballVeliocity_Y = Vy;
+	this->veliocity = { ballVeliocity_X, ballVeliocity_Y };
 }
 
