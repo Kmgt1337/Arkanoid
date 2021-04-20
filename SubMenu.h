@@ -2,11 +2,11 @@
 #include <SFML\Graphics.hpp>
 #include <vector>
 
-class Menu
+class SubMenu
 {
 public:
-	Menu(float width, float height);
-	~Menu() = default;
+	SubMenu(float width, float height, size_t size, std::vector<std::string> stringVec);
+	~SubMenu() = default;
 
 	void draw(sf::RenderWindow& window);
 	void moveUp();
@@ -18,4 +18,3 @@ private:
 	sf::Font font;
 	std::vector<sf::Text> text;
 };
-

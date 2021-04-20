@@ -151,14 +151,16 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Rectangle.cpp" />
-    <ClCompile Include="someFunctions.cpp" />
-    <ClCompile Include="Text.cpp" />
+    <ClCompile Include="SubMenu.cpp" />
     <ClCompile Include="Textures.cpp" />
+    <ClCompile Include="Game.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="SubMenu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

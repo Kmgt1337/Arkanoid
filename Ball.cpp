@@ -84,7 +84,6 @@ void Ball::changeAfterHitBottom()
 
 void Ball::changeAfterHitTop()
 {
-	std::cout << "HEHE" << std::endl;
 	this->veliocity.y *= -1;
 }
 

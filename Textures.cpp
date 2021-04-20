@@ -4,7 +4,7 @@
 inline sf::Texture makeBallTextureRight()
 {
 	sf::Texture ballTexture;
-	if (!ballTexture.loadFromFile("pics/papiezprawy.png")) std::cout << "Error" << std::endl;
+	if (!ballTexture.loadFromFile("pics/Earth.png")) std::cout << "Error" << std::endl;
 
 	return ballTexture;
 }
@@ -12,7 +12,7 @@ inline sf::Texture makeBallTextureRight()
 inline sf::Texture makeBallTextureLeft()
 {
 	sf::Texture ballTexture;
-	if (!ballTexture.loadFromFile("pics/papiezlewy.png")) std::cout << "Error" << std::endl;
+	if (!ballTexture.loadFromFile("pics/Earth.png")) std::cout << "Error" << std::endl;
 
 	return ballTexture;
 }
@@ -28,7 +28,7 @@ inline sf::Texture makeRectanglesTexture()
 inline sf::Texture makeBackgroundTexture()
 {
 	sf::Texture backgroundTexture;
-	if (!backgroundTexture.loadFromFile("pics/watykan.png")) std::cout << "Error" << std::endl;
+	if (!backgroundTexture.loadFromFile("pics/MilkyWay.png")) std::cout << "Error" << std::endl;
 
 	return backgroundTexture;
 }
