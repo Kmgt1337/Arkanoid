@@ -1,5 +1,7 @@
-#pragma once
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
 #include <SFML\Graphics.hpp>
+#include "Ball.h"
 
 class Rectangle : public sf::Drawable
 {
@@ -9,9 +11,9 @@ public:
 
 	void setPosition(float x, float y);
 	void setColor(sf::Color color);
-	void move(sf::Keyboard::Key key);
+	void move(sf::Keyboard::Key key, float width, float height);
 	void setSize(float x, float y);
-	int isHit(float x, float y, float Vx, float Vy);
+	int isHit(float x, float y, float Vx, float Vy, Ball* ball);
 	
 	sf::RectangleShape shape;
 
@@ -21,3 +23,5 @@ private:
 	sf::Vector2f size{ sizeX, sizeY };
 	void draw(sf::RenderTarget& target, sf::RenderStates state) const override;
 };
+
+#endif

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef MENU_H
+#define MENU_H
+
 #include <SFML\Graphics.hpp>
 #include <vector>
 
@@ -18,4 +20,6 @@ private:
 	sf::Font font;
 	std::vector<sf::Text> text;
 };
+
+#endif 
 

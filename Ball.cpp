@@ -16,21 +16,21 @@ void Ball::draw(sf::RenderTarget& target, sf::RenderStates state) const
 	target.draw(this->shape, state);
 }
 
-void Ball::update()
+void Ball::update(float width, float height)
 {
 	if (this->left() < 0)
 	{
 		this->veliocity.x = -veliocity.x;
 	}
-	else if (this->right() > 1200)
+	else if (this->right() > height)
 	{
 		this->veliocity.x = -veliocity.x;
 	}
-	if (this->top() < 0)
+	if (this->top() <= 0)
 	{
-		this->veliocity.y = -veliocity.y;
+		this->veliocity.y = abs(veliocity.y);
 	}
-	if (this->bottom() > 800)
+	if (this->bottom() > width)
 	{
 		this->veliocity.y = -veliocity.y;
 	}
@@ -62,13 +62,13 @@ void Ball::checkRectangle(float x, float y)
 {
 	if (this->ballVeliocity_Y > 0 &&
 	   (this->bottom() >= y && this->bottom() <= y + 30.0f) &&
-		this->shape.getPosition().x >= x && this->shape.getPosition().x <= x + 130.0f)
+		this->shape.getPosition().x >= x - 30.0f && this->shape.getPosition().x <= x + 130.0f)
 	{
 		this->veliocity.y = -ballVeliocity_Y;
 	}
 	else if (this->ballVeliocity_Y < 0 &&
 			(this->top() <= y + 30.0f && this->top() >= y) &&
-			this->shape.getPosition().x >= x && this->shape.getPosition().x <= x + 130.0f)
+			this->shape.getPosition().x >= x - 30.0f && this->shape.getPosition().x <= x + 130.0f)
 	{
 		this->veliocity.y = -ballVeliocity_Y;
 	}
@@ -89,13 +89,13 @@ void Ball::changeAfterHitTop()
 
 void Ball::increaseSpeed()
 {
-	this->ballVeliocity_X += 0.175f;
-	this->ballVeliocity_Y += 0.175f;
+	this->ballVeliocity_X += 0.1f;
+	this->ballVeliocity_Y += 0.1f;
 }
 
-bool Ball::gameOver()
+bool Ball::gameOver(float height)
 {
-	if (this->bottom() > 800)
+	if (this->bottom() > height)
 	{
 		return true;
 	}
@@ -116,6 +116,13 @@ void Ball::checkBallTexture(sf::Texture& ballTextureRight, sf::Texture& ballText
 {
 	if (this->veliocity.x < 0) this->shape.setTexture(&ballTextureLeft, false);
 	else					   this->shape.setTexture(&ballTextureRight, false);
+}
+
+void Ball::setSpeed(float Vx, float Vy)
+{
+	this->ballVeliocity_X = Vx;
+	this->ballVeliocity_Y = Vy;
+	this->veliocity = { ballVeliocity_X, ballVeliocity_Y };
 }
 
 

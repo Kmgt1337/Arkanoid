@@ -1,12 +1,12 @@
 #include "SubMenu.h"
 
-SubMenu::SubMenu(float width, float height, size_t size, std::vector<std::string> stringVec)
+SubMenu::SubMenu(float width, float height, std::vector<std::string> stringVec)
 {
-	if (!font.loadFromFile("fonts/OpenSans-Regular.ttf"))
+	if (!font.loadFromFile("fonts/BahamasBold.ttf"))
 	{
 		//
 	}
-	text.resize(size);
+	text.resize(stringVec.size());
 
 	for (size_t i = 0; i < text.size(); i++)
 	{
@@ -21,7 +21,7 @@ SubMenu::SubMenu(float width, float height, size_t size, std::vector<std::string
 		else
 		{
 			text.at(i).setCharacterSize(50);
-			text.at(i).setColor(sf::Color::Black);
+			text.at(i).setColor(sf::Color::White);
 		}
 		text.at(i).setPosition(sf::Vector2f(width / text.size(), height / (text.size() + 1) * (i + 1)));
 	}
@@ -38,7 +38,7 @@ void SubMenu::draw(sf::RenderWindow& window)
 void SubMenu::moveUp()
 {
 	text.at(selectedItemIndex).setCharacterSize(50);
-	text.at(selectedItemIndex).setColor(sf::Color::Black);
+	text.at(selectedItemIndex).setColor(sf::Color::White);
 	if (selectedItemIndex == 0)
 	{
 		selectedItemIndex = text.size();
@@ -52,7 +52,7 @@ void SubMenu::moveUp()
 void SubMenu::moveDown()
 {
 	text.at(selectedItemIndex).setCharacterSize(50);
-	text.at(selectedItemIndex).setColor(sf::Color::Black);
+	text.at(selectedItemIndex).setColor(sf::Color::White);
 	if (selectedItemIndex == text.size() - 1)
 	{
 		selectedItemIndex = -1;
