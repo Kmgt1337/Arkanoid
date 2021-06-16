@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['zacznijodmierzacczas_105',['zacznijOdmierzacCzas',['../class_zegar.html#ad3f9a49fc9333006d9f20067a33df8c3',1,'Zegar']]],
+  ['zainicjalizujsymulacje_106',['zainicjalizujSymulacje',['../class_operator_symulacji.html#a9023097bda69d2cd04f372170b73518b',1,'OperatorSymulacji']]],
+  ['zapis_107',['zapis',['../class_operator_pliku.html#ad123c5957799669ea5ee3d310460271a',1,'OperatorPliku']]],
+  ['zapisbitwy_108',['zapisBitwy',['../class_operator_pliku.html#a6e0309f574d15b90b5d41d0b79dd76ba',1,'OperatorPliku']]],
+  ['zapisprzedbitwa_109',['zapisPrzedBitwa',['../class_operator_pliku.html#a009e7db026454060c7e9c3ee105384a7',1,'OperatorPliku']]],
+  ['zapisprzedsymulacja_110',['zapisPrzedSymulacja',['../class_operator_pliku.html#a58b8ce8cf45583b23d1b6ff1f753b2a6',1,'OperatorPliku']]],
+  ['zapiszasobu_111',['zapisZasobu',['../class_operator_pliku.html#a525878a122e0daf403d2d08ad0cf74ef',1,'OperatorPliku']]],
+  ['zasob_112',['Zasob',['../class_zasob.html',1,'Zasob'],['../class_zasob.html#ad4aff371d9da17a23b2722f60c7a8138',1,'Zasob::Zasob()']]],
+  ['zasobprowincji_113',['zasobProwincji',['../class_prowincja.html#a9412a0763d01c8a3ebd9c1ae9f48bc92',1,'Prowincja']]],
+  ['zbierzzasob_114',['zbierzZasob',['../class_armia.html#ac52f5c9ff5946bbdbab59ec6df9037fe',1,'Armia']]],
+  ['zegar_115',['Zegar',['../class_zegar.html',1,'']]],
+  ['zmianaliczebnosci_116',['zmianaLiczebnosci',['../class_operator_symulacji.html#af9eba302e80e1d44310c251b9f4aac04',1,'OperatorSymulacji']]],
+  ['zmienaktywnosc_117',['zmienAktywnosc',['../class_armia.html#aaf900646c409646e51d46063412c8d48',1,'Armia']]],
+  ['zmienaktywnosczasobuna_118',['zmienAktywnoscZasobuNa',['../class_zasob.html#af29f6f455e3e51f13884e272cf2a1087',1,'Zasob']]],
+  ['zmienarmiewprowincji_119',['zmienArmieWProwincji',['../class_prowincja.html#a501db3c55f8c94e930fae80281d70ad6',1,'Prowincja']]],
+  ['zmienliczebnosc_120',['zmienLiczebnosc',['../class_armia.html#a8a01f1a0ed1c4e049cbb4bd5289f4f3c',1,'Armia']]],
+  ['zmienprzynaleznosc_121',['zmienPrzynaleznosc',['../class_prowincja.html#ae761670c87376656bcf48e54fec7bbe5',1,'Prowincja']]],
+  ['zmiensymbol_122',['zmienSymbol',['../class_armia.html#afc7948c033dda05c82603c2d394137cd',1,'Armia::zmienSymbol()'],['../class_prowincja.html#ac70d0bbc5a64e032779e92e8017c409e',1,'Prowincja::zmienSymbol(char a)']]],
+  ['zmienwspolrzednax_123',['zmienwspolrzednax',['../class_prowincja.html#a0704311908be53dd839dad1a6799d0fa',1,'Prowincja']]],
+  ['zmienwspolrzednay_124',['zmienwspolrzednay',['../class_prowincja.html#a5786f06018b08df448c9172487743838',1,'Prowincja']]],
+  ['zwiad_125',['Zwiad',['../class_zwiad.html',1,'']]],
+  ['zwiad_126',['zwiad',['../class_armia.html#a599ca764b7fe8ae84376a91529a592fb',1,'Armia']]],
+  ['zwiad_127',['Zwiad',['../class_zwiad.html#a8a6586bc4a1fea8959dbe4dfa79cc100',1,'Zwiad']]]
+];
